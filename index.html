@@ -718,5 +718,62 @@ class="event-card-link" style="text-decoration: none; color: inherit;">
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Floating Action Button -->
+  <a href="feature.html" class="floating-btn" aria-label="Find People">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="floating-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>
+  </a>
+  
+  <style>
+    /* Floating Action Button Styles */
+    .floating-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 56px;
+      height: 56px;
+      background-color: #FF5700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    
+    .floating-btn:hover {
+      background-color: #e64a19;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .floating-btn:active {
+      transform: translateY(0);
+    }
+    
+    .floating-icon {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .floating-btn {
+        width: 52px;
+        height: 52px;
+        bottom: 24px;
+        right: 24px;
+      }
+      
+      .floating-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
 </body>
 </html>
