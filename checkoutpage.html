@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Event Booking</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+        }
+        .event-summary {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .booking-form {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .event-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .event-title {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .event-meta {
+            color: #666;
+            margin: 5px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 20px 0;
+        }
+        .divider {
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="event-summary" id="eventSummary">
+            <!-- Event details will be populated by JavaScript -->
+        </div>
+        
+        <div class="booking-form">
+            <h2>Complete Your Booking</h2>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="tickets">Number of Tickets</label>
+                <select id="tickets">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <!-- Add the promo code section here -->
+<div class="form-group">
+    <label for="promoCode">Promo Code (Optional)</label>
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="promoCode" placeholder="Enter promo code" style="flex: 1;">
+        <button type="button" id="applyPromo" style="width: auto; padding: 0 15px;">Apply</button>
+    </div>
+    <div id="promoStatus" style="font-size: 14px; margin-top: 5px;"></div>
+</div>
+            <div class="divider"></div>
+            <div class="price" id="totalPrice">Total: $25.00</div>
+            <button id="bookNow">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Hidden event card for data extraction -->
+    <div id="eventCard" style="display: none;">
+        <div class="event-card">
+            <div class="event-image">
+                <img src="assets/https___cdn.evbuc.com_images_452393759_404056442963_1_original.jpeg" alt="Event" id="eventImage">
+            </div>
+            <div class="event-details">
+                <h3 class="event-title">Summer Music Festival 2023</h3>
+                <p class="event-date">Sat, Jun 17 · 12:00 PM</p>
+                <p class="event-location">Central Park</p>
+                <p class="event-price">From $25.00</p>
+                <p class="event-followers">👤 2.5k followers</p>
+            </div>
+        </div>
+    </div>
+
+   <!-- Replace the hidden event card div with this script at the top of the body -->
+<script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Function to validate promo code
+    function validatePromoCode(code) {
+        const promoCodes = {
+            'SUMMER20': 0.2,    // 20% off
+            'WELCOME10': 0.1,    // 10% off
+            'MUSICLOVER': 15,    // $15 off
+            'FREESHIP': 5        // $5 off
+        };
+        return promoCodes[code] || null;
+    }
+
+    // Function to calculate total price
+    function calculateTotal(quantity, price, discount = 0, isPercentage = true) {
+        const baseTotal = quantity * price;
+        let discountAmount = isPercentage ? (baseTotal * discount) : discount;
+        // Ensure discount doesn't make total negative
+        const total = Math.max(0, baseTotal - discountAmount);
+        return {
+            baseTotal,
+            discount: discountAmount,
+            total
+        };
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get event data from URL parameters
+        const today = new Date();
+        const defaultDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        
+        const eventData = {
+            title: getUrlParameter('title') || 'Event Title',
+            date: getUrlParameter('date') || defaultDate,
+            date: getUrlParameter('date') || 'Date not specified',
+            location: getUrlParameter('location') || 'Location not specified',
+            price: parseFloat(getUrlParameter('price')) || 0,
+            image: getUrlParameter('image') || 'https://via.placeholder.com/800x400?text=Event+Image',
+            followers: getUrlParameter('followers') || '0 followers'
+        };
+
+        // Update the event summary section
+        const eventSummary = document.getElementById('eventSummary');
+        eventSummary.innerHTML = `
+            <h2>Event Details</h2>
+            <div class="event-image">
+                <img src="${eventData.image}" alt="${eventData.title}">
+            </div>
+            <h3 class="event-title">${eventData.title}</h3>
+            <p class="event-meta">📅 ${eventData.date}</p>
+            <p class="event-meta">📍 ${eventData.location}</p>
+            <p class="event-meta">👤 ${eventData.followers}</p>
+            <div class="divider"></div>
+            <p class="event-price">Price: $${eventData.price.toFixed(2)}</p>
+        `;
+
+        // Get DOM elements
+        const ticketsSelect = document.getElementById('tickets');
+        const totalPrice = document.getElementById('totalPrice');
+        const promoCodeInput = document.getElementById('promoCode');
+        const applyPromoBtn = document.getElementById('applyPromo');
+        const promoStatus = document.getElementById('promoStatus');
+        
+        let currentPromo = null;
+        let isPercentageDiscount = true;
+
+        // Function to update total price
+        function updateTotal() {
+            const quantity = parseInt(ticketsSelect.value);
+            const price = eventData.price;
+            
+            let discount = 0;
+            if (currentPromo) {
+                discount = currentPromo.discount;
+                isPercentage = currentPromo.isPercentage;
+                
+                const totals = calculateTotal(quantity, price, discount, isPercentage);
+                
+                totalPrice.innerHTML = `
+                    <div>Subtotal: $${totals.baseTotal.toFixed(2)}</div>
+                    <div>Discount: -$${totals.discount.toFixed(2)}</div>
+                    <div class="total-amount">Total: $${totals.total.toFixed(2)}</div>
+                `;
+            } else {
+                const totals = calculateTotal(quantity, price);
+                totalPrice.innerHTML = `
+                    <div class="total-amount">Total: $${totals.total.toFixed(2)}</div>
+                `;
+            }
+        }
+
+        // Handle ticket quantity change
+        ticketsSelect.addEventListener('change', updateTotal);
+
+        // Handle promo code application
+        applyPromoBtn.addEventListener('click', function() {
+            const promoCode = promoCodeInput.value.trim().toUpperCase();
+            const discount = validatePromoCode(promoCode);
+            
+            if (discount !== null) {
+                currentPromo = {
+                    code: promoCode,
+                    discount: discount,
+                    isPercentage: typeof discount === 'number' && discount <= 1 // If discount is <= 1, treat as percentage
+                };
+                promoStatus.textContent = `Promo code ${promoCode} applied!`;
+                promoStatus.style.color = 'green';
+                updateTotal();
+            } else {
+                currentPromo = null;
+                promoStatus.textContent = 'Invalid promo code';
+                promoStatus.style.color = 'red';
+                updateTotal();
+            }
+        });
+
+        // Generate a unique ticket ID
+        function generateTicketId() {
+            return 'TKT-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Save ticket to localStorage
+        function saveTicket(ticketData) {
+            let tickets = JSON.parse(localStorage.getItem('bookedTickets') || '[]');
+            tickets.push(ticketData);
+            localStorage.setItem('bookedTickets', JSON.stringify(tickets));
+        }
+
+        // Handle form submission
+        const bookNowBtn = document.getElementById('bookNow');
+        if (!bookNowBtn) {
+            console.error('Book Now button not found');
+            return;
+        }
+        
+        bookNowBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const tickets = document.getElementById('tickets').value;
+
+            if (name && email && phone) {
+                const totalElement = document.querySelector('.total-amount');
+                const total = totalElement ? totalElement.textContent : `$${(eventData.price * tickets).toFixed(2)}`;
+                
+                // Create ticket data
+                let eventDateTime;
+                try {
+                    // Create date object from event date string (format: YYYY-MM-DD)
+                    const dateParts = eventData.date.split('-').map(Number);
+                    const timeParts = (eventData.time || '19:00').split(':').map(Number);
+                    
+                    // Create date object with local time
+                    eventDateTime = new Date(
+                        dateParts[0], // year
+                        dateParts[1] - 1, // month (0-11)
+                        dateParts[2], // day
+                        timeParts[0] || 0, // hours
+                        timeParts[1] || 0, // minutes
+                        0, // seconds
+                        0 // ms
+                    );
+                    
+                    // Validate the date
+                    if (isNaN(eventDateTime.getTime())) {
+                        throw new Error('Invalid date');
+                    }
+                } catch (error) {
+                    console.error('Error creating event date:', error);
+                    // Fallback to current date/time if there's an error parsing the date
+                    eventDateTime = new Date();
+                }
+                
+                const ticketData = {
+                    id: generateTicketId(),
+                    event: {
+                        title: eventData.title,
+                        date: eventData.date,
+                        time: eventData.time || '19:00',
+                        datetime: eventDateTime.toISOString(), // Store the full datetime for countdown
+                        venue: eventData.venue || 'Event Venue',
+                        image: eventData.image || 'default-image.jpg'
+                    },
+                    booking: {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        ticketCount: parseInt(tickets),
+                        total: total,
+                        bookingDate: new Date().toISOString()
+                    },
+                    status: 'upcoming'
+                };
+
+                try {
+                    // Save ticket to localStorage
+                    saveTicket(ticketData);
+                    
+                    // Format date for display
+                    const displayDate = new Date(ticketData.event.datetime).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    
+                    if (confirm(`Thank you for your booking, ${name}!\n\n` +
+                              `Event: ${ticketData.event.title}\n` +
+                              `Date: ${displayDate}\n` +
+                              `Tickets: ${ticketData.booking.ticketCount}\n` +
+                              `Total: ${ticketData.booking.total}\n\n` +
+                              `Click OK to view your tickets.`)) {
+                        window.location.href = 'my-tickets.html';
+                    }
+                } catch (error) {
+                    console.error('Error saving ticket:', error);
+                    alert('There was an error processing your booking. Please try again.');
+                }
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Initial total calculation
+        updateTotal();
+    });
+</script>
+</body>
+</html>

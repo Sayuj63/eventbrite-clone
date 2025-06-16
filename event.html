@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Details</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="event-detail"></main>
+  <script>
+    function getEventById(id) {
+      const evs = JSON.parse(localStorage.getItem('events') || '[]');
+      return evs.find(ev => ev.id === id);
+    }
+    // read ?id=123 from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const ev = getEventById(id);
+
+    const container = document.getElementById('event-detail');
+    if (!ev) {
+      container.innerHTML = `<div class="empty">Event not found. <a href="index2.html">Back to home</a></div>`;
+    } else {
+      container.innerHTML = `
+        <article class="event-detail-card">
+          <img src="${ev.image}" alt="${ev.title}" />
+          <div>
+            <h1>${ev.title}</h1>
+            <div class="event-meta">
+              <span>📅 ${ev.date} ${ev.time}</span>
+              <span>📍 ${ev.location}</span>
+            </div>
+            <p>${ev.description}</p>
+            <a href="index2.html" class="btn">Back to all events</a>
+          </div>
+        </article>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Confirmed</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body {
+      background: #f6f8fa;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .confirmation-container {
+      max-width: 370px;
+      margin: auto;
+      background: #fff;
+      padding: 2.5em 2em 2em 2em;
+      border-radius: 1.2em;
+      box-shadow: 0 6px 42px #0477c044;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .confirmation-icon {
+      font-size: 2.6em;
+      margin-bottom: 0.4em;
+      display: inline-block;
+    }
+    .confirmation-title {
+      margin-bottom: 0.3em;
+      font-size: 1.45em;
+      color: #243457;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: bold;
+    }
+    .confirmation-message {
+      margin-top: 0;
+      margin-bottom: 1.2em;
+      color: #44648a;
+      font-size: 1.07em;
+    }
+    .confirmation-image-wrapper {
+      margin-bottom: 1.5em;
+      background: #eaf4fa;
+      padding: 0.4em;
+      border-radius: 0.8em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .confirmation-image-wrapper img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 0.7em;
+      box-shadow: 0 1px 8px #0002;
+      object-fit: cover;
+    }
+    .confirmation-action {
+      margin-top: 2em;
+      background: #2063d1;
+      color: #fff;
+      border: none;
+      padding: 0.9em 2em;
+      border-radius: 0.45em;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      box-shadow: 0 2px 12px #2063d115;
+      cursor: pointer;
+      transition: background .17s;
+      display: inline-block;
+    }
+    .confirmation-action:hover {
+      background: #174d99;
+    }
+    @media (max-width: 600px) {
+      .confirmation-container {
+        max-width: 98vw;
+        padding: 1.5em 0.6em 1em 0.6em;
+      }
+      .confirmation-image-wrapper img {
+        max-width: 99vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-container">
+    <div class="confirmation-icon">🎉</div>
+    <div class="confirmation-title">Booking Confirmed!</div>
+    <p class="confirmation-message">
+      Your spot has been successfully confirmed.<br>
+      We've reserved your place and sent a confirmation email.
+    </p>
+    <div class="confirmation-image-wrapper">
+      <img src="https://placehold.co/320x160/53bedf/002d6e?text=BOOKED" alt="Booking Confirmed">
+    </div>
+    <a href="index.html" class="confirmation-action">Back to Events</a>
+  </div>
+</body>
+</html>

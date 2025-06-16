@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightlife Events in Mumbai - Eventbrite</title>
+    <meta name="description" content="Discover nightlife events in Mumbai">
+    <meta name="author" content="Eventbrite Clone">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Plak:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <meta property="og:title" content="Nightlife Events in Mumbai - Eventbrite">
+    <meta property="og:description" content="Discover nightlife events in Mumbai">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">eventbrite</span>
+                </div>
+                
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-input">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" placeholder="Search events">
+                        </div>
+                        <div class="location-input">
+                            <svg class="location-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <input type="text" placeholder="Mumbai">
+                        </div>
+                        <button class="search-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Create an event</a>
+                    <button class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </button>
+                    <button class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </button>
+                    <button class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-items">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+                <a href="#" class="breadcrumb-link">India</a>
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+                <a href="#" class="breadcrumb-link">Mumbai</a>
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+                <a href="#" class="breadcrumb-link">Events in Mumbai</a>
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+                <span class="breadcrumb-current">Nightlife</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">NIGHTLIFE</h1>
+                    <p class="hero-subtitle">in Mumbai, India</p>
+                    <p class="hero-description">Electrify your nights with parties, music, comedy, and more.</p>
+                    
+                    <div class="hero-filters">
+                        <button class="filter-btn">
+                            <span>Mumbai</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <button class="filter-btn">
+                            <span>Date</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://cdn.evbstatic.com/s3-build/fe/build/images/4268533f51b50f55aa2e3927d257f616-nightlife.webp" alt="Nightlife scene">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-container">
+                <h2 class="category-title">Explore what's popular within Nightlife</h2>
+                
+                <div class="category-grid">
+                    <button class="category-item active" data-category="all">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="category-name">All</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="tonight">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="category-name">Tonight</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="weekend">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="category-name">This Weekend</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="music">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18V5l12-2v13"></path>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                        <span class="category-name">Music</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="clubs">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9"></path>
+                            <path d="M21 9H3v-2a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2z"></path>
+                        </svg>
+                        <span class="category-name">Clubs & Parties</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="holidays">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span class="category-name">Holidays</span>
+                    </button>
+                    
+                    <button class="category-item" data-category="comedy">
+                        <svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span class="category-name">Comedy & Shows</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empty State -->
+    <section class="empty-state">
+        <div class="container">
+            <div class="empty-content">
+                <div class="empty-icon">
+                    <div class="ghost-icon">👻</div>
+                </div>
+                <h3 class="empty-title">We couldn't find anything</h3>
+                <p class="empty-description">Adjust your filters and try again</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Events -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title">Free</h2>
+            
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop" alt="Open Mic Event">
+                    <div class="event-date">MON</div>
+                    <button class="event-favorite">♥</button>
+                </div>
+                
+                <div class="event-details">
+                    <div class="event-status">Sales end soon</div>
+                    <h3 class="event-title">Sailors' Cafe OpenMic Mondays</h3>
+                    <div class="event-time">Tomorrow • 8:00 PM • 50 more</div>
+                    <div class="event-location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Mumbai Centre</span>
+                    </div>
+                    <div class="event-price">Free</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Tags -->
+    <section class="tags-section">
+        <div class="container">
+            <h2 class="section-title">Trending event tags in your area</h2>
+            
+            <div class="tags-container">
+                <div class="tags-grid">
+                    <button class="tag-item">#music</button>
+                    <button class="tag-item">#singing</button>
+                    <button class="tag-item">#openmic</button>
+                    <button class="tag-item">#live</button>
+                    <button class="tag-item">#evening</button>
+                    <button class="tag-item">#party</button>
+                    <button class="tag-item">#networking</button>
+                    <button class="tag-item">#gaming</button>
+                    <button class="tag-item">#karaoke</button>
+                    <button class="tag-item">#standup comedy</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers -->
+    <section class="organizers-section">
+        <div class="container">
+            <h2 class="section-title">Organizers to follow</h2>
+            
+            <div class="organizer-card">
+                <div class="organizer-icon">⛵</div>
+                <h3 class="organizer-name">Sailors' Cafe</h3>
+                <p class="organizer-followers">136 followers</p>
+                <button class="follow-btn">Follow</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Cities -->
+    <section class="cities-section">
+        <div class="container">
+            <h2 class="section-title">Explore nightlife events near Mumbai</h2>
+            
+            <div class="cities-grid">
+                <div class="city-item">
+                    <h3 class="city-name">Pune</h3>
+                    <p class="city-distance">74 miles away</p>
+                </div>
+                <div class="city-item">
+                    <h3 class="city-name">Thāne</h3>
+                    <p class="city-distance">11 miles away</p>
+                </div>
+                <div class="city-item">
+                    <h3 class="city-name">Sūrat</h3>
+                    <p class="city-distance">144 miles away</p>
+                </div>
+                <div class="city-item">
+                    <h3 class="city-name">Silvassa</h3>
+                    <p class="city-distance">81 miles away</p>
+                </div>
+                <div class="city-item">
+                    <h3 class="city-name">Nerul</h3>
+                    <p class="city-distance">11 miles away</p>
+                </div>
+                <div class="city-item">
+                    <h3 class="city-name">Nās</h3>
+                    <p class="city-distance">84 miles away</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">eventbrite</div>
+                    <p class="footer-copyright">© 2025 Eventbrite</p>
+                    <p class="footer-extra">Manage Cookie Preferences</p>
+                </div>
+                
+                <div class="footer-links">
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Help</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Press</a></li>
+                        <li><a href="#" class="footer-link">Investors</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                        <li><a href="#" class="footer-link">Developers</a></li>
+                        <li><a href="#" class="footer-link">Status</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                        <li><a href="#" class="footer-link">Privacy</a></li>
+                        <li><a href="#" class="footer-link">Accessibility</a></li>
+                        <li><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-country">
+                    <select class="country-select">
+                        <option>United States</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Category filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryItems = document.querySelectorAll('.category-item');
+            
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    categoryItems.forEach(cat => cat.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

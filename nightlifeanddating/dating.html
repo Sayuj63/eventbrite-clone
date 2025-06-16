@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating Events in Mumbai - Eventbrite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8e8ff 0%, #e8f0ff 50%, #fff8e8 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #f05537;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            border: 1px solid #dcdce1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .search-input-wrapper, .location-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+        }
+
+        .location-input-wrapper {
+            border-left: 1px solid #dcdce1;
+        }
+
+        .search-icon, .location-icon {
+            position: absolute;
+            left: 10px;
+            color: #6a6a6f;
+            z-index: 1;
+        }
+
+        .search-input, .location-input {
+            width: 100%;
+            padding: 10px 15px 10px 35px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .search-btn {
+            background: #f05537;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #6a6a6f;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            color: #6a6a6f;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background:linear-gradient(135deg, #f8e8ff 0%, #e8f0ff 50%, #fff8e8 100%);
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #6a6a6f;
+        }
+
+        .breadcrumb a {
+            color: #6a6a6f;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8e8ff 0%, #e8f0ff 50%, #fff8e8 100%);
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 140px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0;
+            letter-spacing: 2px;
+            font-family:Neue Plak Condensed;
+            line-height: 120px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: 'Neue Plak';
+            padding-top: 0 !important;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #3a3247 !important;
+            margin-bottom: 30px;
+            max-width: 400px;
+            letter-spacing: .25px;
+            margin-top: 24px;
+        }
+
+        .location-dropdown {
+            background: white;
+            border: 1px solid #dcdce1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: transparent;
+            padding: 20px 0;
+            border-bottom: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .filter-content {
+            max-width: fit-content;
+            margin: 0 auto;
+            padding: 8px 15px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            pointer-events: auto;
+            justify-content: center;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .filter-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .filter-content {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border: 1px solid #e0e0e0;
+            background: #f0f0f0;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            color: #555;
+            flex-shrink: 0;
+            font-size: 0.85em;
+        }
+
+        .filter-btn:last-child {
+            margin-right: 0;
+        }
+
+        .filter-btn.active {
+            background: #3654dd;
+            color: white;
+            border-color: #3654dd;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .filter-btn:hover {
+            background: #e6e6e6;
+            border-color: #c0c0c0;
+            color: #333;
+        }
+
+        .filter-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-right: 10px;
+        }
+
+        .filter-dropdown svg {
+            width: 14px;
+            height: 14px;
+            color: #555;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f8e8ff 0%, #e8f0ff 50%, #fff8e8 100%);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .event-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .event-price {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #220042;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-middle-links {
+            display: flex;
+            justify-content: center;
+        }
+
+      
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .footer-link {
+            color: #afadbb;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .footer-link:not(:first-child)::before {
+            content: '•';
+            color: #afadbb;
+            margin: 0 5px;
+            font-size: 0.8em;
+        }
+
+        .country-select {
+            background: #2a2d3a;
+            color: #afadbb;
+            border: 1px solid #4f4b5f;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+        }
+
+        .footer-cookie-preferences-wrapper {
+            text-align: center;
+            margin-top: 20px;
+            color: #afadbb;
+            font-size: 0.8rem;
+        }
+
+        .footer-cookie-preferences-wrapper .footer-link {
+            color: #afadbb;
+            text-decoration: none;
+        }
+
+        .footer-cookie-preferences-wrapper .footer-link:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 200px;
+            }
+
+            .filter-content {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .footer-left, .footer-middle-links, .footer-right-select {
+                flex: none;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-links {
+                justify-content: center;
+            }
+            .footer-link:not(:first-child)::before {
+                margin-right: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">eventbrite</div>
+            
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" class="search-input" placeholder="Search events">
+                </div>
+                <div class="location-input-wrapper">
+                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <input type="text" class="location-input" value="Mumbai">
+                </div>
+                <button class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-link"><svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8M5.996 16.002H20M12 2v2M4 9h2v2H4V9Zm14 0h2v2h-2V9ZM4 17h2v2H4v-2Zm14 0h2v2h-2v-2Z"></path><path d="M17 19.5v-7A2.5 2.5 0 0 0 14.5 10H9.5A2.5 2.5 0 0 0 7 12.5v7"></path></svg>Create an event</a>
+                <div class="nav-icons">
+                    <div class="nav-icon-wrapper">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <div class="nav-icon-wrapper">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                    </div>
+                    <div class="nav-icon-wrapper">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                </div>
+                <span>2024.sayujpillai@gmail.com</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="../index.html">Home</a> / <a href="#">India</a> / <a href="#">Mumbai</a> / <a href="#">Events in Mumbai</a> / <a href="#">Home & Lifestyle</a> / Dating
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">IT'S A DATE</h1>
+                <p class="hero-subtitle">in Mumbai</p>
+                <p class="hero-description">Spark something new, no matter your relationship status.</p>
+                <div class="location-dropdown">
+                    Mumbai <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.evbstatic.com/s3-build/fe/build/images/09172746400da407b8c74f2acfb0e19b-dating.webp" alt="Dating events">
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-content">
+            <button class="filter-btn filter-dropdown">
+                Date <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Speed dating</button>
+            <button class="filter-btn">Today</button>
+            <button class="filter-btn">This weekend</button>
+            <button class="filter-btn">LGBTQIA+</button>
+            <button class="filter-btn">Parties</button>
+            <button class="filter-btn">Music</button>
+            <button class="filter-btn">Comedy</button>
+            <button class="filter-btn">Hobbies and crafts</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Most Popular Events -->
+        <section class="section">
+            <h2 class="section-title">Most popular events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=200&fit=crop" alt="Coffee Meetup" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Coffee Meetup 30 Age to 50 Age Mumbai</h3>
+                        <p class="event-meta">Fri, Jul 4 • 7:00 PM</p>
+                        <p class="event-meta">Third Wave Coffee</p>
+                        <p class="event-price">Free</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943758293%2F2235598435203%2F1%2Foriginal.20250124-132611?crop=focalpoint&fit=crop&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.375894988067&fp-y=0.47373540856&s=5318ace0ee24611030a0a7fd1f89ca4d" alt="Silent Disco" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Silent Disco Party in Bandra</h3>
+                        <p class="event-meta">Sat, Jul 5 • 9:00 PM</p>
+                        <p class="event-meta">The Funky Monkey Club</p>
+                        <p class="event-price">From $15.00</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943758293%2F2235598435203%2F1%2Foriginal.20250124-132611?crop=focalpoint&fit=crop&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.375894988067&fp-y=0.47373540856&s=5318ace0ee24611030a0a7fd1f89ca4d" alt="Stand-up Comedy" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Comedy Night with Local Talents</h3>
+                        <p class="event-meta">Sun, Jul 6 • 8:00 PM</p>
+                        <p class="event-meta">The Laughing Bistro</p>
+                        <p class="event-price">From $10.00</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943758293%2F2235598435203%2F1%2Foriginal.20250124-132611?crop=focalpoint&fit=crop&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.375894988067&fp-y=0.47373540856&s=5318ace0ee24611030a0a7fd1f89ca4d" alt="Live Music" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Jazz and Blues Live at The Blue Note</h3>
+                        <p class="event-meta">Fri, Jul 11 • 7:30 PM</p>
+                        <p class="event-meta">The Blue Note Jazz Club</p>
+                        <p class="event-price">From $20.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Someone New -->
+        <section class="section">
+            <h2 class="section-title">Meet someone new</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1574391884720-bbc428f89172?w=400&h=200&fit=crop" alt="Drinks Meetup" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Drinks Meetup Pune</h3>
+                        <p class="event-meta">Sat, Jun 21 • 1:00 PM</p>
+                        <p class="event-meta">Mocha - Salunke Vihar</p>
+                        <p class="event-price">From $0.00</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1519669556555-d450849206d2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hiking Trip" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Sunrise Trek & Breakfast</h3>
+                        <p class="event-meta">Sun, Jul 13 • 6:00 AM</p>
+                        <p class="event-meta">Sanjay Gandhi National Park</p>
+                        <p class="event-price">Free</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan a Date -->
+        <section class="section">
+            <h2 class="section-title">Plan a date</h2>
+            <div class="events-grid"> 
+                <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1519669556555-d450849206d2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hiking Trip" class="event-image">
+                <div class="event-details">
+                    <h3 class="event-title">Sunrise Trek & Breakfast</h3>
+                    <p class="event-meta">Sun, Jul 13 • 6:00 AM</p>
+                    <p class="event-meta">Sanjay Gandhi National Park</p>
+                    <p class="event-price">Free</p>
+                </div>
+            </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1519669556555-d450849206d2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cooking Class" class="event-image">
+                    <div class="event-details">
+                        <h3 class="event-title">Italian Pasta Making Class</h3>
+                        <p class="event-meta">Thu, Jul 17 • 6:30 PM</p>
+                        <p class="event-meta">Culinary Arts Institute</p>
+                        <p class="event-price">From $45.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span>© 2025 Eventbrite</span>
+            </div>
+            <div class="footer-middle-links">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Help</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Press</a>
+                    <a href="#" class="footer-link">Impact</a>
+                    <a href="#" class="footer-link">Investors</a>
+                    <a href="#" class="footer-link">Security</a>
+                    <a href="#" class="footer-link">Developers</a>
+                    <a href="#" class="footer-link">Status</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Accessibility</a>
+                    <a href="#" class="footer-link">Cookies</a>
+                </div>
+            </div>
+            <div class="footer-right-select">
+                <select class="country-select">
+                    <option>United States</option>
+                </select>
+            </div>
+        </div>
+        <div class="footer-cookie-preferences-wrapper">
+            <a href="#" class="footer-link">Manage Cookie Preferences</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Events</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="font-family: 'Segoe UI', sans-serif; background-color: #fff; margin: 40px; padding-bottom: 100px; text-align: center;">
+
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; border-bottom: 1px solid #ddd;">
+    <div style="display: flex; align-items: center;">
+      <div style="font-size: 24px; font-weight: bold; margin-right: 20px; color: #FF5500;">eventbrite</div>
+
+      <div style="display: flex; align-items: center; background: #f5f5f5; padding: 8px; border-radius: 25px;">
+        <i class="fa fa-search search-icon"></i>
+        <input type="text" placeholder="Search events" style="border: none; outline: none; padding: 6px 12px; font-size: 14px; background: transparent; width: 200px;" />
+        <div style="display: flex; align-items: center; margin-left: 10px; color: #555;">
+          <i class="fa fa-location-dot loc-icon"></i>
+          <span class="city-name">Mumbai</span>
+        </div>
+        <button class="go-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <a href="#" class="head-link"><i class="fa fa-plus"></i> Create an event</a>
+      <a href="#" class="head-link"><i class="fa fa-heart"></i> Likes</a>
+      <a href="#" class="head-link"><i class="fa fa-ticket"></i> Tickets</a>
+      <div style="margin-left: 20px; color: #555;">
+        <i class="fa fa-user"></i> sayujpillai63@gmail.com <i class="fa fa-chevron-down"></i>
+      </div>
+    </div>
+  </header>
+
+  <div style="background-color: #0000ff; display: flex; justify-content: space-between; align-items: center; padding: 30px; color: #ffffff;">
+    <div style="flex: 1; padding-right: 20px; text-align: left;">
+      <h1 style="font-size: 72px; font-weight: bold; color: #ffff00; margin-bottom: 10px;">Music events</h1>
+      <p style="font-size: 24px; margin-bottom: 20px; opacity: 0.8;">in Mumbai, India</p>
+      <p style="font-size: 18px; opacity: 0.7;">Discover the best Music events in your area and online</p>
+    </div>
+    <div style="flex: 1; display: flex; justify-content: flex-end;">
+      <img src="assets/75d81eed66f040a590ed5744b3367d8c-music.webp" alt="Music Event" style="max-width: 50%; height: auto;">
+    </div>
+  </div>
+
+  <h2 style="font-size: 28px; color: #1E0A3C; margin: 50px 0 40px;">Explore music event formats</h2>
+
+  <!-- First Set -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 40px; justify-items: center; margin-bottom: 20px;">
+    <div class="event-item"><img src="assets/8309d0fc55992e28f04edd815e2b63c0-festival.jpg"><span>Festivals</span></div>
+    <div class="event-item"><img src="assets/26deedacbfdd67f8b67ef0a7746e47a3-seminar.jpg"><span>Seminars</span></div>
+    <div class="event-item"><img src="assets/c05d863c1a1f2b19645f79529991a327-expo.jpg"><span>Expos</span></div>
+    <div class="event-item"><img src="assets/773b5241e7be0ef600ce420836bed98c-screening.jpg"><span>Screenings</span></div>
+    <div class="event-item"><img src="assets/1d41a779e78a37ad7a8e291f23744d4a-networking.jpg"><span>Networking</span></div>
+    <div class="event-item"><img src="assets/4e5ea84abb1b77ed6de32ef659ca67a1-party.jpg"><span>Parties</span></div>
+    <div class="event-item"><img src="assets/8bf64545bd49e53df2ff3c507acb4004-tournament.jpg"><span>Tournaments</span></div>
+    <div class="event-item"><img src="assets/2520bc117b9d962f4a692ba041bb8ab5-race.jpg"><span>Races</span></div>
+  </div>
+
+  <!-- Second Set (Hidden initially) -->
+  <div id="moreItems" style="display: none; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 40px; justify-items: center; margin-bottom: 20px;">
+    <div class="event-item"><img src="assets/78c136d7cbd6fcfee983ad7c2adae400-classes.jpg"><span>Classes</span></div>
+    <div class="event-item"><img src="assets/78a8ee4a8d5bd7ce28d656d0d40aec3e-game.jpg"><span>Games</span></div>
+    <div class="event-item"><img src="assets/4580a030d5af134d88fe1ab7bbb1bf8f-attraction.jpg"><span>Attractions</span></div>
+    <div class="event-item"><img src="assets/8fb29cbffeaad1851b381a6b47c4d277-retreat.jpg"><span>Retreats</span></div>
+    <div class="event-item"><img src="assets/73aac1a7011106284d691a713062e35a-tour.jpg"><span>Tours</span></div>
+    <div class="event-item"><img src="assets/773b5241e7be0ef600ce420836bed98c-screening.jpg"><span>Screenings</span></div>
+    <div class="event-item"><img src="assets/1d41a779e78a37ad7a8e291f23744d4a-networking.jpg"><span>Appearances</span></div>
+    <div class="event-item"><img src="assets/4e5ea84abb1b77ed6de32ef659ca67a1-party.jpg"><span>Galas</span></div>
+  </div>
+
+  <!-- Toggle Button -->
+  <div style="margin-top: 20px;">
+    <button onclick="toggleMore()" style="padding: 10px 20px; font-size: 16px; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; color: #333; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#e5e5e5'" onmouseout="this.style.backgroundColor='#f5f5f5'">View more</button>
+  </div>
+
+  <script>
+    const moreItems = document.getElementById("moreItems");
+    const toggleBtn = document.querySelector(".toggle-btn");
+
+    function toggleMore() {
+      const isVisible = window.getComputedStyle(moreItems).display !== "none";
+      moreItems.style.display = isVisible ? "none" : "grid";
+      toggleBtn.innerText = isVisible ? "View more" : "View less";
+    }
+  </script>
+
+</body>
+</html>

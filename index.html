@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventbrite Clone</title>
+    <meta name="description" content="Discover Events in Mumbai, India" />
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+    
+<header class="main-header">
+    <div class="header-content">
+        <div class="header-left">
+            <a href="index.html" class="logo">eventbrite</a>
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Search events">
+                </div>
+                <div class="search-input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <input type="text" placeholder="Mumbai">
+                </div>
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <a href="create-event.html">Create an event</a>
+            <a href="index2.html">Your Events</a>
+            <a href="my-tickets.html">Tickets</a>
+            <a href="#">user@email.com</a>
+        </nav>
+    </div>
+</header>
+<style>
+  .main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f05537;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dbdae3;
+  border-radius: 50px;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.search-input-wrapper svg {
+  color: #6f7287;
+  margin-right: 8px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 14px;
+  width: 300px;
+  background: transparent;
+}
+
+.search-button {
+  background-color: #d1410c;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #b9390a;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 16px;
+}
+
+.header-nav a {
+    color: #39364f;
+    text-decoration: none;
+    position: relative;
+    padding: 6px 0;
+    white-space: nowrap;
+}
+
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.header-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.header-nav a:last-child {
+    font-weight: 600;
+    color: #000;
+}
+
+</style>
+  <main>
+    <section class="hero-slideshow">
+      <div class="slide active">
+        <div class="slide-content">
+        </div>
+        <img src="assets/image copy.png" alt="Food Festival">
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+        </div>
+        <img src="assets/image.png" alt="Food Experience">
+      </div>
+      <button class="slide-nav prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slide-nav next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+  </main>
+
+  <section class="category-row">
+    <div class="category-container">
+      <a href="category/music.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-music"></i>
+        </div>
+        <span class="category-label">Music</span>
+      </a>
+      
+      <a href="nightlifeanddating/index.html" class="category-item active">
+        <div class="icon-circle">
+          <i class="fas fa-moon"></i>
+        </div>
+        <span class="category-label">Nightlife</span>
+      </a>
+      
+      <a href="category/performing-arts.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-palette"></i>
+        </div>
+        <span class="category-label">Performing Arts</span>
+      </a>
+      
+      <a href="category/holidays.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-umbrella-beach"></i>
+        </div>
+        <span class="category-label">Holidays</span>
+      </a>
+      
+      <a href="nightlifeanddating/dating.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-heart"></i>
+        </div>
+        <span class="category-label">Dating</span>
+      </a>
+      
+      <a href="category/hobbies.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <span class="category-label">Hobbies</span>
+      </a>
+      
+      <a href="category/business.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <span class="category-label">Business</span>
+      </a>
+      
+      <a href="category/food-drink.html" class="category-item">
+        <div class="icon-circle">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <span class="category-label">Food & Drink</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="location-section">
+    <div class="location-container">
+      <div class="location-header">
+        <span class="location-text">Browsing events in</span>
+        <div class="location-dropdown">
+          <button class="location-trigger">
+            <span class="location-name">Mumbai</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-item">
+              <i class="fas fa-location-dot"></i>
+              <span>Use my current location</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <i class="fas fa-play"></i>
+              <span>Browse online events</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="events-section">
+      <div class="filter-tabs">
+        <button class="tab active">All</button>
+        <button class="tab">For you</button>
+        <button class="tab">Online</button>
+        <button class="tab">Today</button>
+        <button class="tab">This weekend</button>
+        <button class="tab">Juneteenth</button>
+        <button class="tab">Pride</button>
+        <button class="tab">Free</button>
+        <button class="tab">Music</button>
+        <button class="tab">Food & Drink</button>
+        <button class="tab">Charity & Causes</button>
+      </div>
+      
+      <div class="events-header">
+        <h2>Events $30 and under</h2>
+      </div>
+      
+      <div class="events-container">
+        <div class="events-scroll">
+    <!-- Event Card 1 -->
+<a href="checkoutpage.html?title=Summer%20Music%20Festival%202023&date=Sat%2C%20Jun%2017%20%C2%B7%2012%3A00%20PM&location=Central%20Park&price=25&image=assets%2Fhttps___cdn.evbuc.com_images_452393759_404056442963_1_original.jpeg&followers=2.5k%20followers" 
+class="event-card-link" style="text-decoration: none; color: inherit;">
+ <div class="event-card">
+     <div class="event-image">
+         <img src="assets/https___cdn.evbuc.com_images_452393759_404056442963_1_original.jpeg" alt="Event">
+     </div>
+     <div class="event-details">
+         <h3 class="event-title">Summer Music Festival 2023</h3>
+         <p class="event-date">Sat, Jun 17 · 12:00 PM</p>
+         <p class="event-location">Central Park</p>
+         <p class="event-price">From $25.00</p>
+         <p class="event-followers">👤 2.5k followers</p>
+     </div>
+ </div>
+</a>
+
+<!-- Event Card 2 -->
+<a href="checkoutpage.html?title=Food%20Truck%20Festival&date=Sun%2C%20Jun%2018%20%C2%B7%2011%3A00%20AM&location=Downtown%20Square&price=15&image=assets%2Fhttps___cdn.evbuc.com_images_665089759_37309396322_1_original.jpeg&followers=1.3k%20followers" 
+class="event-card-link" style="text-decoration: none; color: inherit;">
+ <div class="event-card">
+     <div class="event-image">
+         <img src="assets/https___cdn.evbuc.com_images_665089759_37309396322_1_original.jpeg" alt="Event">
+     </div>
+     <div class="event-details">
+         <h3 class="event-title">Food Truck Festival</h3>
+         <p class="event-date">Sun, Jun 18 · 11:00 AM</p>
+         <p class="event-location">Downtown Square</p>
+         <p class="event-price">From $15.00</p>
+         <p class="event-followers">👤 1.3k followers</p>
+     </div>
+ </div>
+</a>
+          
+          <!-- Event Card 3 with Sale Badge -->
+          <a href="checkoutpage.html?title=Yoga%20in%20the%20Park&date=Sat%2C%20Jun%2024%20%C2%B7%208%3A00%20AM&location=Riverside%20Park&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_845634249_2309931499653_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_845634249_2309931499653_1_original.jpeg" alt="Event">
+              <span class="sale-badge">Sales end soon</span>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Yoga in the Park</h3>
+              <p class="event-date">Sat, Jun 24 · 8:00 AM</p>
+              <p class="event-location">Riverside Park</p>
+              <p class="event-price">From $20.00</p>
+              <p class="event-organizer">Mind & Body Wellness</p>
+            </div>
+          </div>
+          </a>          
+          <!-- Event Card 4 with Icons -->
+          <a href="checkoutpage.html?title=Art%20Exhibition%20Opening%20Night&date=Fri%2C%20Jun%2023%20%C2%B7%206%3A00%20PM&location=Gallery%20Street&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_883264433_111492295925_1_original.jpeg&followers=1k%20followers" 
+class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_883264433_111492295925_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="icon-btn">
+                  <span class="heart-icon">♥</span>
+                </button>
+                <button class="icon-btn">
+                  <span class="share-icon">↗</span>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Art Exhibition Opening Night</h3>
+              <p class="event-date">Fri, Jun 23 · 6:00 PM</p>
+              <p class="event-location">Modern Art Gallery</p>
+              <p class="event-price">From $30.00</p>
+              <p class="event-followers">👤 3.1k followers</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        
+        <button class="scroll-btn left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="scroll-btn right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    
+    <section class="mumbai-events">
+      <div class="container">
+        <h2 class="section-title">Events in Mumbai</h2>
+        <div class="events-grid">
+          <!-- Event Card 1 -->
+          <a href="checkoutpage.html?title=Mumbai%20Food%20Festival%202023&date=Sat%2C%20Jun%2028%20%C2%B7%206%3A00%20PM&location=Bake%20House%20Cafe&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_883914103_37309396322_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_883914103_37309396322_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Mumbai Food Festival 2023</h3>
+              <p class="event-date">Sat, Jun 28 • 6:00 PM</p>
+              <p class="event-location">Bake House Cafe</p>
+              <p class="event-price">From $0.00</p>
+              <p class="event-followers">👤 1k followers</p>
+              <span class="promoted-tag">Promoted</span>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 2 -->
+          <a href="checkoutpage.html?title=Bollywood%20Night%20with%20DJ%20Aryan&date=Fri%2C%20Jun%2027%20%C2%B7%209%3A00%20PM&location=The%20Club&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_887275373_37309396322_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_887275373_37309396322_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Bollywood Night with DJ Aryan</h3>
+              <p class="event-date">Fri, Jun 27 • 9:00 PM</p>
+              <p class="event-location">Club Enigma</p>
+              <p class="event-price">From $499.00</p>
+              <p class="event-followers">👤 5.2k followers</p>
+              <span class="deal-tag">2 for 1 deal</span>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 3 -->
+          <a href="checkoutpage.html?title=Startup%20Networking%20Mixer&date=Thu%2C%20Jun%2026%20%C2%B7%207%3A00%20PM&location=Tech%20Hub&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_908931563_37309396322_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_908931563_37309396322_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <span class="sale-badge">Sales end soon</span>
+              <h3 class="event-title">Startup Networking Mixer</h3>
+              <p class="event-date">Thu, Jun 26 • 5:30 PM</p>
+              <p class="event-location">WeWork BKC</p>
+              <p class="event-price">Free</p>
+              <p class="event-followers">👤 2.3k followers</p>
+              <span class="promoted-tag">Promoted</span>
+            </div>
+          </div>
+            </a>
+
+          <!-- Event Card 4 -->
+          <a href="checkoutpage.html?title=Sunset%20Yoga%20at%20Juhu%20Beach&date=Sun%2C%20Jun%2029%20%C2%B7%205%3A30%20AM&location=Juhu%20Beach&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_918375583_1917351482233_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_918375583_1917351482233_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Sunset Yoga at Juhu Beach</h3>
+              <p class="event-date">Sun, Jun 29 • 5:30 AM</p>
+              <p class="event-location">Juhu Beach</p>
+              <p class="event-price">From $15.00</p>
+              <p class="event-followers">👤 890 followers</p>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 5 -->
+          <a href="checkoutpage.html?title=Mumbai%20Street%20Food%20Tour&date=Sat%2C%20Jun%2028%20%C2%B7%2011%3A00%20AM&location=Fort%20Area&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_924691373_37309396322_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_924691373_37309396322_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Mumbai Street Food Tour</h3>
+              <p class="event-date">Sat, Jun 28 • 11:00 AM</p>
+              <p class="event-location">Fort Area</p>
+              <p class="event-price">From $25.00</p>
+              <p class="event-followers">👤 4.1k followers</p>
+              <span class="deal-tag">2 for 1 deal</span>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 6 -->
+          <a href="checkoutpage.html?title=Stand-up%20Comedy%20Night&date=Fri%2C%20Jun%2027%20%C2%B7%208%3A00%20PM&location=The%20Habitat&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_935724163_620392206543_1_original.jpeg&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_935724163_620392206543_1_original.jpeg" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Stand-up Comedy Night</h3>
+              <p class="event-date">Fri, Jun 27 • 8:00 PM</p>
+              <p class="event-location">The Habitat</p>
+              <p class="event-price">From $10.00</p>
+              <p class="event-followers">👤 3.7k followers</p>
+              <span class="promoted-tag">Promoted</span>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 7 -->
+          <a href="checkoutpage.html?title=Art%20&%20Wine%20Tasting&date=Thu%2C%20Jun%2026%20%C2%B7%207%3A00%20PM&location=Gallery%20Street&price=20&image=assets%2Fhttps___cdn.evbuc.com_images_949402733_292357453239_1_original.png&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="assets/https___cdn.evbuc.com_images_949402733_292357453239_1_original.png" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <span class="sale-badge">Sales end soon</span>
+              <h3 class="event-title">Art & Wine Tasting</h3>
+              <p class="event-date">Sun, Jun 29 • 7:00 PM</p>
+              <p class="event-location">Art Loft Mumbai</p>
+              <p class="event-price">From $35.00</p>
+              <p class="event-followers">👤 2.8k followers</p>
+            </div>
+          </div>
+          </a>
+
+          <!-- Event Card 8 -->
+          <a href="checkoutpage.html?title=Mumbai%20Marathon%202023&date=Sun%2C%20Jul%206%20%C2%B7%205%3A30%20AM&location=Marine%20Drive&price=20&image=https://picsum.photos/300/169?random=12&followers=1k%20followers" 
+          class="event-card-link" style="text-decoration: none; color: inherit;">
+          <div class="event-card">
+            <div class="event-image">
+              <img src="https://picsum.photos/300/169?random=12" alt="Event">
+              <div class="image-actions">
+                <button class="action-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3 class="event-title">Mumbai Marathon 2023</h3>
+              <p class="event-date">Sun, Jul 6 • 5:30 AM</p>
+              <p class="event-location">Marine Drive</p>
+              <p class="event-price">From $50.00</p>
+              <p class="event-followers">👤 8.5k followers</p>
+              <span class="promoted-tag">Promoted</span>
+            </div>
+          </div>
+          </a>
+          </div>
+      </div>
+    </section>
+
+    <section class="more-events">
+      <div class="container">
+        <h2 class="section-title">More events</h2>
+        <div class="events-grid">
+          <!-- Event cards will be generated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section class="popular-cities">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Popular in United States</h2>
+          <div class="view-all">
+            <a href="#">View all</a>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="cities-container">t
+          <button class="scroll-btn left">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="cities-scroll">
+            <!-- City cards will be added by JavaScript -->
+          </div>
+          <button class="scroll-btn right">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <section class="popular-cities-section">
+        <div class="container">
+          <h2 class="section-title">Popular cities</h2>
+          <div class="cities-grid">
+            <a href="#" class="city-pill">Things to do in Abilene <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Austin <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Denver <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Phoenix <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Seattle <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Albuquerque <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Baltimore <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Anaheim <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Detroit <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Nashville <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Raleigh <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Wichita <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Indianapolis <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in San Antonio <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </section>
+  
+      <section class="nearby-cities-section">
+        <div class="container">
+          <h2 class="section-title">Things to do around Mumbai</h2>
+          <div class="cities-grid">
+            <a href="#" class="city-pill">Things to do in Pune <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Thāne <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Sūrat <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Silvassa <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Nerul <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Belāpur <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="city-pill">Things to do in Vashi <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </section>
+  
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span>© 2025 Eventbrite</span>
+      </div>
+      
+      <div class="footer-center">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <span class="divider">•</span>
+          <a href="#">Blog</a>
+          <span class="divider">•</span>
+          <a href="#">Help</a>
+          <span class="divider">•</span>
+          <a href="#">Careers</a>
+          <span class="divider">•</span>
+          <a href="#">Press</a>
+          <span class="divider">•</span>
+          <a href="#">Impact</a>
+          <span class="divider">•</span>
+          <a href="#">Investors</a>
+          <span class="divider">•</span>
+          <a href="#">Security</a>
+          <span class="divider">•</span>
+          <a href="#">Developers</a>
+          <span class="divider">•</span>
+          <a href="#">Status</a>
+          <span class="divider">•</span>
+          <a href="#">Terms</a>
+          <span class="divider">•</span>
+          <a href="#">Privacy</a>
+          <span class="divider">•</span>
+          <a href="#">Accessibility</a>
+          <span class="divider">•</span>
+          <a href="#">Cookies</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Manage Cookie Preferences</a>
+          <span class="divider">•</span>
+          <a href="#">Do Not Sell or Share My Personal Information</a>
+        </div>
+      </div>
+      
+      <div class="footer-right">
+        <div class="country-selector">
+          <span>United States</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

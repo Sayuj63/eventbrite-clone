@@ -1,0 +1,341 @@
+
+/* General Page Styles */
+body {
+    background-color: #f8f7fa;
+    color: #1e0a3c;
+}
+
+.hobbies-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs-container {
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.breadcrumbs a {
+    color: #3659e3;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    color: #6f7287;
+}
+
+/* Hero Section */
+.hobbies-hero {
+    position: relative;
+    color: white;
+    padding: 60px 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #0c3c52;
+}
+
+.hobbies-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hobbies-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.hobbies-hero p {
+    font-size: 18px;
+    margin: 5px 0 0;
+}
+
+.hobbies-hero-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Filters */
+.hobbies-filters {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.filter-dropdown {
+    background-color: white;
+    border: 1px solid #dbdae3;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Most Popular Events Grid */
+.hobbies-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.hobby-event-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.hobby-event-card .card-image-wrapper {
+    position: relative;
+}
+
+.hobby-event-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.hobby-event-card .card-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255,255,255,0.9);
+    color: #1e0a3c;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.hobby-event-card .card-content {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.hobby-event-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.hobby-event-card p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #4b4d63;
+}
+.hobby-event-card p.location {
+    color: #6f7287;
+}
+.hobby-event-card p.price {
+    font-weight: 500;
+    color: #1e0a3c;
+}
+
+
+/* Organizers */
+.organizers-section {
+    margin-top: 50px;
+}
+
+.organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.organizer-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.organizer-card .organizer-logo-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    background-color: #eee;
+}
+
+.organizer-card .organizer-logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.organizer-card h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 5px;
+}
+
+.organizer-card p {
+    font-size: 14px;
+    color: #6f7287;
+    margin: 0 0 15px;
+}
+
+.organizer-card button {
+    background-color: #f0f0f0;
+    border: 1px solid #dbdae3;
+    color: #3659e3;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+}
+.organizer-card button:hover{
+    background-color: #e0e0e0;
+}
+
+
+/* Trending Tags */
+.trending-tags-section {
+    margin-top: 50px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tag-bubble {
+    background-color: white;
+    border: 1px solid #dbdae3;
+    border-radius: 20px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #3659e3;
+    font-size: 14px;
+}
+.tag-bubble:hover {
+    border-color: #3659e3;
+}
+
+/* Event Formats */
+.event-formats-section {
+    margin-top: 50px;
+}
+
+.formats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.format-card {
+    text-align: center;
+    text-decoration: none;
+    color: #1e0a3c;
+}
+
+.format-card .format-img-wrapper {
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.format-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.format-card span {
+    font-weight: 500;
+}
+
+/* Time Options */
+.event-time-options-section {
+    margin-top: 50px;
+}
+.time-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.time-option {
+    background: white;
+    border: 1px solid #dbdae3;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #3659e3;
+    font-size: 16px;
+    font-weight: 500;
+}
+.time-option:hover {
+    border-color: #3659e3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Other Categories */
+.other-categories-section {
+    margin-top: 50px;
+}
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+.category-link {
+    background: white;
+    border: 1px solid #dbdae3;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: none;
+    color: #1e0a3c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.category-link:hover {
+    border-color: #4b4d63;
+}
+.category-link svg {
+    width: 24px;
+    height: 24px;
+    color: #d1410c;
+}
+
+/* Near Mumbai */
+.near-mumbai-section {
+    margin-top: 50px;
+}
+

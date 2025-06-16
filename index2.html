@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eventbrite Clone - Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Eventbrite Clone</h1>
+    <a href="create-event.html" class="btn">+ Create Event</a>
+  </header>
+  <main>
+    <div id="events-list"></div>
+  </main>
+  <script>
+    // Fetch events from localStorage (or mock data)
+    function getEvents() {
+      return JSON.parse(localStorage.getItem('events') || '[]');
+    }
+
+    function renderList() {
+      const list = document.getElementById('events-list');
+      const events = getEvents();
+      if (!events.length) {
+        list.innerHTML = `<div class="empty">No events yet. Click <b>Create Event</b> to add one!</div>`;
+        return;
+      }
+      list.innerHTML = events.map(ev => `
+        <div class="event-card">
+          <a href="event.html?id=${ev.id}">
+            <img src="${ev.image}" alt="${ev.title}" />
+            <div>
+              <h2>${ev.title}</h2>
+              <div class="event-meta">
+                <span>📅 ${ev.date} ${ev.time}</span>
+                <span>📍 ${ev.location}</span>
+              </div>
+              <p>${ev.description.substring(0, 100)}${ev.description.length > 100 ? '…' : ''}</p>
+            </div>
+          </a>
+        </div>
+      `).join('');
+    }
+    renderList();
+  </script>
+</body>
+</html>

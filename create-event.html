@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Event</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <form id="event-form">
+      <h2>Create your event</h2>
+      <label>
+        Event Title
+        <input required name="title" placeholder="e.g. Yoga at Sunset" />
+      </label>
+      <label>
+        Image URL
+        <input required name="image" placeholder="Paste image url" />
+      </label>
+      <label>
+        Date
+        <input required name="date" type="date" />
+      </label>
+      <label>
+        Time
+        <input required name="time" type="time" />
+      </label>
+      <label>
+        Location
+        <input required name="location" placeholder="e.g. Central Park, NY" />
+      </label>
+      <label>
+        Description
+        <textarea required name="description" placeholder="What is your event about?"></textarea>
+      </label>
+      <button class="btn" type="submit">Publish Event</button>
+      <div id="form-message"></div>
+    </form>
+  </main>
+  <script>
+    document.getElementById('event-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(this));
+      data.id = Date.now() + '';
+      const arr = JSON.parse(localStorage.getItem('events') || '[]');
+      arr.push(data);
+      localStorage.setItem('events', JSON.stringify(arr));
+      document.getElementById('form-message').textContent = 'Event created! Redirecting...';
+      setTimeout(() => {
+        window.location.href = "index2.html";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
